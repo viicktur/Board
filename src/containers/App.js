@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
-import Board from './Board';
-import Header from '../components/Header/Header';
+import React, { Component } from "react";
+import styled, { createGlobalStyle } from "styled-components";
+import Board from "./Board";
+import Header from "../components/Header/Header";
+import Tickets from "./Tickets";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -21,12 +22,19 @@ const AppWrapper = styled.div`
 
 class App extends Component {
   render() {
+    const lanes = [
+      { id: 1, title: "To Do" },
+      { id: 2, title: "In Progress" },
+      { id: 3, title: "Review" },
+      { id: 4, title: "Done" },
+    ];
     return (
       <>
         <GlobalStyle />
         <AppWrapper>
           <Header />
-          <Board />
+          <Board lanes={lanes} dataSource={"../../assets/data.json"} />
+          <Tickets dataSource={"../../assets/data.json"} />
         </AppWrapper>
       </>
     );

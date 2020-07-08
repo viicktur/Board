@@ -34,10 +34,10 @@ const Title = styled.h2`
 const Lane = ({ tickets, loading, error, title }) => (
   <LaneWrapper>
     <Title>{title}</Title>
-    {(loading || error) && <Alert>{loading ? loading : error}</Alert>}
+    {(loading || error) && <Alert>{loading ? "loading" : error}</Alert>}
     <TicketsWrapper>
       {tickets.map((ticket) => (
-        <Ticket key={ticket.id} ticket={ticket} />
+        <Ticket key={ticket.id} ticket={ticket} marginRight />
       ))}
     </TicketsWrapper>
   </LaneWrapper>
